@@ -1,7 +1,7 @@
 import requests
 import re
 import pymysql
-import setting as config
+from app import setting as config
 
 
 class Spider:

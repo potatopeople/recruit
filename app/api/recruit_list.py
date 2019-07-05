@@ -2,7 +2,7 @@ from threading import Thread
 import json
 import time
 from app.http.Spider import Spider
-from city_data import anchors as city
+from app.city_data import anchors as city
 
 
 def postHttp(start, end):
