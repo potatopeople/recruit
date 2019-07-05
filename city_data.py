@@ -1,3 +1,6 @@
+import os
+import re
+
 city = [
         {"name": "乐东", "value": "102000"},
         {"name": "雅安", "value": "091800"},
@@ -410,4 +413,16 @@ city = [
             {'name': "香港", 'value': "330000"},
             {'name': "澳门", 'value': "340000"},
             {'name': "台湾", 'value': "350000"}
-] # 城市对应关系
+]
+
+anchor = []
+anchors = []
+files = os.listdir('./app/data')
+for item in files:
+    anchor.append(re.findall('(.*?).json', item,re.S)[0])
+for item in city:
+    if not item['name'] in anchor:
+        anchors.append({'name': item['name'], 'value': item['value']})
+# for item in anchors:
+#         print(item)
+# print(len(anchors))

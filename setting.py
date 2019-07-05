@@ -1,0 +1,4 @@
+HOST='localhost'
+USER='ROOT',
+PASSWORD='123456'
+DATABASE='recruit'

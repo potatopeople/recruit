@@ -1,8 +1,8 @@
 from threading import Thread
 import json
 import time
-from Spider import Spider
-from city_data import city
+from app.http.Spider import Spider
+from city_data import anchors as city
 
 
 def postHttp(start, end):
@@ -20,7 +20,7 @@ def postHttp(start, end):
             if not data:
                 print(item['name'], '*'*15, '爬取完成。')
                 go.prompt = ''
-                file = open('./data/' + item['name'] + '.json', 'w')
+                file = open('./app/data/' + item['name'] + '.json', 'w')
                 file.write(json.dumps(anchor if len(anchor) else '此地暂无数据'))
                 file.flush()
                 file.close()
@@ -32,18 +32,17 @@ def postHttp(start, end):
                 print(item['name'], '  第***', i, '***页')
                 i += 1
 
-
 def run():
-    one = Thread(args=(0, 50), target=postHttp)
-    two = Thread(args=(50, 90), target=postHttp)
-    three = Thread(args=(90, 140), target=postHttp)
-    four = Thread(args=(140, 190), target=postHttp)
-    five = Thread(args=(190, 250), target=postHttp)
-    six = Thread(args=(250, 310), target=postHttp)
-    seven = Thread(args=(310, 375), target=postHttp)
-    eight = Thread(args=(375, 385), target=postHttp)
-    nine = Thread(args=(385, 395), target=postHttp)
-    ten = Thread(args=(395, 410), target=postHttp)
+    one = Thread(args=(0, 60), target=postHttp)
+    two = Thread(args=(60, 120), target=postHttp)
+    three = Thread(args=(120, 180), target=postHttp)
+    four = Thread(args=(180, 240), target=postHttp)
+    five = Thread(args=(240, 300), target=postHttp)
+    six = Thread(args=(300, 360), target=postHttp)
+    seven = Thread(args=(360, 375), target=postHttp)
+    eight = Thread(args=(375, 390), target=postHttp)
+    nine = Thread(args=(390, 405), target=postHttp)
+    ten = Thread(args=(405, 411), target=postHttp)
     one.start()
     two.start()
     three.start()
